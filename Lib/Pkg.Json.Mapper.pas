@@ -134,7 +134,7 @@ begin
     StringList.Add('interface');
     StringList.Add('');
     StringList.Add('uses');
-    StringList.Add('  Pkg.Json.DTO, System.Generics.Collections, REST.Json.Types;');
+    StringList.Add('  Json.DTO.Base, System.Generics.Collections, REST.Json.Types;');
     StringList.Add('');
     StringList.Add('{$M+}');
     StringList.Add('');
@@ -228,7 +228,7 @@ begin
   try
     ResourceStream.Position := 0;
     Buffer.LoadFromStream(ResourceStream);
-    Buffer.SaveToFile(TPath.GetDirectoryName(aFileName) + TPath.DirectorySeparatorChar + 'Pkg.Json.DTO.pas');
+    Buffer.SaveToFile(TPath.GetDirectoryName(aFileName) + TPath.DirectorySeparatorChar + 'Json.DTO.Base.pas');
   finally
     ResourceStream.Free;
     Buffer.Free;

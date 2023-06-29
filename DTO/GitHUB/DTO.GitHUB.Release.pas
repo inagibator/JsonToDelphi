@@ -3,7 +3,7 @@ unit DTO.GitHUB.Release;
 interface
 
 uses
-  DTO.GitHUB.ReleaseDTO, System.Generics.Collections, Pkg.Json.DTO;
+  DTO.GitHUB.ReleaseDTO, System.Generics.Collections, Json.DTO.Base;
 
 type
   TRelease = TItemsDTO;

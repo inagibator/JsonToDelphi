@@ -3,7 +3,7 @@ unit DTO.GitHUB.ReleaseDTO;
 interface
 
 uses
-  Pkg.Json.DTO, System.Generics.Collections, REST.Json.Types;
+  Json.DTO.Base, System.Generics.Collections, REST.Json.Types;
 
 {$M+}
 

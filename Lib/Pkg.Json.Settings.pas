@@ -2,7 +2,7 @@ unit Pkg.Json.Settings;
 
 interface
 
-uses Pkg.Json.DTO;
+uses Json.DTO.Base;
 
 Type
   TSettings = class(TJsonDTO)

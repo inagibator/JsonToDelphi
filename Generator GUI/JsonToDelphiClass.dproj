@@ -142,7 +142,7 @@
         <DCCReference Include="..\Components\uUpdate.pas"/>
         <DCCReference Include="..\Components\Pkg.Json.Visualizer.pas"/>
         <DCCReference Include="..\Demo Generator\Pkg.Json.DemoGenerator.pas"/>
-        <DCCReference Include="..\Lib\Pkg.Json.DTO.pas"/>
+        <DCCReference Include="..\Lib\Json.DTO.Base.pas"/>
         <DCCReference Include="..\Lib\Pkg.Json.JSONName.pas"/>
         <DCCReference Include="..\Lib\Pkg.Json.Lists.pas"/>
         <DCCReference Include="..\Lib\Pkg.Json.Mapper.pas"/>
