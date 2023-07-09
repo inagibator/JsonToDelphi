@@ -301,7 +301,7 @@ begin
   try
     ResourceStream.Position := 0;
     Buffer.LoadFromStream(ResourceStream);
-    Buffer.SaveToFile(ExtractFilePath(sd.FileName) + 'Pkg.Json.DTO.pas');
+    Buffer.SaveToFile(ExtractFilePath(sd.FileName) + 'Json.DTO.Base.pas');
   finally
     ResourceStream.Free;
     Buffer.Free;

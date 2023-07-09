@@ -10,7 +10,7 @@ uses
   uUpdate in '..\Components\uUpdate.pas',
   Pkg.Json.Visualizer in '..\Components\Pkg.Json.Visualizer.pas',
   Pkg.Json.DemoGenerator in '..\Demo Generator\Pkg.Json.DemoGenerator.pas',
-  Pkg.Json.DTO in '..\Lib\Pkg.Json.DTO.pas',
+  Json.DTO.Base in '..\Lib\Json.DTO.Base.pas',
   Pkg.Json.JSONName in '..\Lib\Pkg.Json.JSONName.pas',
   Pkg.Json.Lists in '..\Lib\Pkg.Json.Lists.pas',
   Pkg.Json.Mapper in '..\Lib\Pkg.Json.Mapper.pas',

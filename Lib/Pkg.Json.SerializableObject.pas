@@ -3,7 +3,7 @@ unit Pkg.Json.SerializableObject;
 interface
 
 uses Generics.Collections, Rest.Json, IdUri, IdHttp,
-  IdSSLOpenSSL, System.Json, SysUtils, Classes, Pkg.Json.DTO;
+  IdSSLOpenSSL, System.Json, SysUtils, Classes, Json.DTO.Base;
 
 type
   /// Represents a serializable object with HTTP/REST capabilities (via Indy)

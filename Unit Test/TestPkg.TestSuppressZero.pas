@@ -5,7 +5,7 @@ interface
 uses System.Sysutils,
   DUnitX.TestFramework, DUnitX.Assert.Ex,
 
-  Pkg.Json.JSONName, Pkg.Json.DTO;
+  Pkg.Json.JSONName, Json.DTO.Base;
 
 type
   TDateTimeDTO = class(TJsonDTO)
