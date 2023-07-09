@@ -2,7 +2,13 @@ unit Json.DTO.Base;
 
 interface
 
-uses System.Classes, System.JSON, CMS.JSON, System.Generics.Collections, CMS.JSONReflect;
+uses
+  System.Classes,
+  System.JSON,
+  System.Generics.Collections,
+
+  CMS.JSON,
+  CMS.JSONReflect;
 
 type
   TArrayMapper = class
@@ -22,12 +28,13 @@ type
     class procedure PrettyPrintArray(aJSONValue: TJSONArray; aOutputStrings: TStrings; Last: Boolean; Indent: Integer);
   protected
     function GetAsJson: string; virtual;
-    procedure SetAsJson(aValue: string); virtual;
+    procedure SetAsJson(AValue: TJsonValue); overload; virtual;
+    procedure SetAsJson(AValue: string); overload; virtual;
   public
+    property AsJson: string read GetAsJson write SetAsJson;
     constructor Create; override;
     class function PrettyPrintJSON(aJson: string): string; overload;
     function ToString: string; override;
-    property AsJson: string read GetAsJson write SetAsJson;
   end;
 
   GenericListReflectAttribute = class(JsonReflectAttribute)
@@ -409,6 +416,8 @@ begin
   end;
 end;
 
+
+
 class procedure TJsonDTO.PrettyPrintPair(aJSONValue: TJSONPair; aOutputStrings: TStrings; Last: Boolean; Indent: Integer);
 const
   TEMPLATE = '%s:%s';
@@ -430,7 +439,40 @@ begin
   aOutputStrings.Add(Line);
 end;
 
-procedure TJsonDTO.SetAsJson(aValue: string);
+procedure TJsonDTO.SetAsJson(AValue: TJsonValue);
+var
+  JSONObject: TJSONObject;
+begin
+  if not Assigned(AValue) then
+    Exit;
+
+  if (AValue is TJSONArray) then
+  begin
+    with TJSONUnMarshal.Create do
+      try
+        SetFieldArray(Self, 'Items', (AValue as TJSONArray));
+      finally
+        Free;
+      end;
+
+    Exit;
+  end;
+
+  if (AValue is TJSONObject) then
+    JSONObject := AValue as TJSONObject
+  else
+  begin
+
+    if not Assigned(AValue) or AValue.ToString.Trim.IsEmpty or not (aValue.ToString.Trim.IsEmpty) and Assigned(AValue) and AValue.Null then
+      Exit
+    else
+      raise EConversionError.Create(SCannotCreateObject);
+  end;
+
+  TJson.JsonToObject(Self, JSONObject, FOptions);
+end;
+
+procedure TJsonDTO.SetAsJson(AValue: string);
 var
   JSONValue: TJsonValue;
   JSONObject: TJSONObject;
